@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h1 class="text-center">Анализ валютных котировок</h1>
+<p class="text-center">Загрузите CSV-файл с котировками для анализа и выберите индикаторы.</p>
+<p class="text-center">Файл должен содержать колонки Date и Price.</p>
+<form action="/analyze" method="post" enctype="multipart/form-data" class="text-center">
+    <input type="file" name="file" class="form-control mb-3" style="width: 300px; margin: auto;">
+    <label for="days" class="form-label">Количество дней для индикатора</label>
+    <input type="number" name="days" id="days" class="form-control mb-3" style="width: 300px; margin: auto;" min="2" value="5">
+    <label class="form-check-label">
+        <input type="checkbox" name="indicators" value="SMA"> SMA
+    </label>
+    <label class="form-check-label">
+        <input type="checkbox" name="indicators" value="BB"> Bollinger Bands
+    </label>
+    <label class="form-check-label">
+        <input type="checkbox" name="indicators" value="RSI"> RSI
+    </label>
+    <br>
+    <button type="submit" class="btn btn-primary mt-3">Проанализировать</button>
+</form>
+{% endblock %}

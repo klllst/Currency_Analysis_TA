@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Analysis{% endblock %}
+
+{% block content %}
+<h1 class="text-center">Результат анализа</h1>
+{% for plot_url in plot_urls %}
+<div class="text-center mb-5">
+    <img src="data:image/png;base64,{{ plot_url }}" class="img-fluid" alt="Analysis Chart">
+</div>
+{% endfor %}
+<a href="/" class="btn btn-secondary mt-3">Назад</a>
+{% endblock %}
