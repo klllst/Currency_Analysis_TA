@@ -4,9 +4,11 @@
 
 {% block content %}
 <h1 class="text-center">Результат анализа</h1>
-{% for plot_url in plot_urls %}
+{% for filename, label in plots_and_files %}
 <div class="text-center mb-5">
-    <img src="data:image/png;base64,{{ plot_url }}" class="img-fluid" alt="Analysis Chart">
+    <img src="{{ url_for('download', filename=filename) }}" class="img-fluid" alt="{{ label }}">
+    <p>{{ label }}</p>
+    <a href="{{ url_for('download', filename=filename) }}" class="btn btn-primary mt-2">Скачать {{ label }}</a>
 </div>
 {% endfor %}
 <a href="/" class="btn btn-secondary mt-3">Назад</a>

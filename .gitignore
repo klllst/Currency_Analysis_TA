@@ -1,4 +1,5 @@
 /data
+/results
 /.venv/lib64
 /.venv/bin/activate
 /.venv/bin/activate.csh
